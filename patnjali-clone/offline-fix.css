@@ -1,0 +1,182 @@
+/* Offline layout fixes for patnjali clone */
+
+body.elementor-page-35 {
+  font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  padding-bottom: 100px;
+  background: #fff;
+}
+
+/* Narrow centered landing column like the live site */
+.elementor-35 .elementor-section.elementor-section-boxed > .elementor-container {
+  max-width: 480px !important;
+}
+
+.elementor-35 .elementor-widget-wrap {
+  text-align: center;
+}
+
+/* Kill the default light-blue heading + blue link colors from Elementor/Astra */
+.elementor-35 .elementor-widget-heading .elementor-heading-title {
+  color: #000 !important;
+  text-align: center;
+}
+
+.elementor-35 .elementor-widget-heading .elementor-heading-title a {
+  color: inherit !important;
+}
+
+.elementor-35 .elementor-widget-text-editor {
+  color: #000 !important;
+  text-align: center;
+}
+
+/* Preserve intentional colors from post-35.css */
+.elementor-35 .elementor-element.elementor-element-a7aa879 .elementor-heading-title,
+.elementor-35 .elementor-element.elementor-element-73919724 .elementor-heading-title,
+.elementor-35 .elementor-element.elementor-element-225dda9f .elementor-heading-title,
+.elementor-35 .elementor-element.elementor-element-3663cd70 .elementor-heading-title,
+.elementor-35 .elementor-element.elementor-element-4531e9b9 .elementor-heading-title {
+  color: #fff !important;
+}
+
+.elementor-35 .elementor-element.elementor-element-6d482ef9 .elementor-heading-title,
+.elementor-35 .elementor-element.elementor-element-779ff7a3 .elementor-heading-title,
+.elementor-35 .elementor-element.elementor-element-3ff62523 .elementor-heading-title,
+.elementor-35 .elementor-element.elementor-element-19b9c25c .elementor-heading-title,
+.elementor-35 .elementor-element.elementor-element-22b80b7 .elementor-heading-title,
+.elementor-35 .elementor-element.elementor-element-44b7f86f .elementor-heading-title {
+  color: #e98f00 !important;
+}
+
+.elementor-35 .elementor-element.elementor-element-62a20b7e .elementor-heading-title,
+.elementor-35 .elementor-element.elementor-element-75184ee4 .elementor-heading-title,
+.elementor-35 .elementor-element.elementor-element-758c31f8 .elementor-heading-title,
+.elementor-35 .elementor-element.elementor-element-218b60a .elementor-heading-title,
+.elementor-35 .elementor-element.elementor-element-667da600 .elementor-heading-title,
+.elementor-35 .elementor-element.elementor-element-7d420b3a .elementor-heading-title {
+  color: #158649 !important;
+}
+
+.elementor-35 .elementor-element.elementor-element-6bd51a1d .elementor-heading-title,
+.elementor-35 .elementor-element.elementor-element-3c68f515 .elementor-heading-title,
+.elementor-35 .elementor-element.elementor-element-211de083 .elementor-heading-title {
+  color: #fd0000 !important;
+  text-decoration: line-through;
+}
+
+/* All product / content images full width */
+.elementor-35 .elementor-widget-image img {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 15px;
+}
+
+/* Green pill CTA buttons */
+.elementor-35 .elementor-element.elementor-element-2748e60e,
+.elementor-35 .elementor-element.elementor-element-e314bfe,
+.elementor-35 .elementor-element.elementor-element-1862a2b5,
+.elementor-35 .elementor-element.elementor-element-66dc057e {
+  display: block;
+  width: 99.898% !important;
+  max-width: 100% !important;
+  margin: 10px auto !important;
+  padding: 5px !important;
+  background-color: #188236 !important;
+  border-radius: 50px !important;
+  text-align: center !important;
+}
+
+.elementor-35 .elementor-element.elementor-element-2748e60e .elementor-heading-title,
+.elementor-35 .elementor-element.elementor-element-e314bfe .elementor-heading-title,
+.elementor-35 .elementor-element.elementor-element-1862a2b5 .elementor-heading-title,
+.elementor-35 .elementor-element.elementor-element-66dc057e .elementor-heading-title,
+.elementor-35 .elementor-element.elementor-element-2748e60e .elementor-heading-title a,
+.elementor-35 .elementor-element.elementor-element-e314bfe .elementor-heading-title a,
+.elementor-35 .elementor-element.elementor-element-1862a2b5 .elementor-heading-title a,
+.elementor-35 .elementor-element.elementor-element-66dc057e .elementor-heading-title a {
+  color: #fff !important;
+  font-size: 22px !important;
+  font-weight: 600 !important;
+  line-height: 1.4 !important;
+  text-decoration: none !important;
+}
+
+.elementor-35 .elementor-element.elementor-element-2748e60e .elementor-heading-title a,
+.elementor-35 .elementor-element.elementor-element-e314bfe .elementor-heading-title a,
+.elementor-35 .elementor-element.elementor-element-1862a2b5 .elementor-heading-title a,
+.elementor-35 .elementor-element.elementor-element-66dc057e .elementor-heading-title a {
+  display: block;
+  padding: 10px 20px;
+}
+
+/* Patient / quote boxes */
+.elementor-35 .elementor-element.elementor-element-6096423d,
+.elementor-35 .elementor-element.elementor-element-51acb422,
+.elementor-35 .elementor-element.elementor-element-c94634,
+.elementor-35 .elementor-element.elementor-element-5eb1a78b,
+.elementor-35 .elementor-element.elementor-element-5e010814,
+.elementor-35 .elementor-element.elementor-element-28143de5,
+.elementor-35 .elementor-element.elementor-element-6945471d,
+.elementor-35 .elementor-element.elementor-element-240cf71,
+.elementor-35 .elementor-element.elementor-element-79092369,
+.elementor-35 .elementor-element.elementor-element-200b00d6,
+.elementor-35 .elementor-element.elementor-element-65264e57,
+.elementor-35 .elementor-element.elementor-element-5af4b125,
+.elementor-35 .elementor-element.elementor-element-2e0aafa8,
+.elementor-35 .elementor-element.elementor-element-138c6c36,
+.elementor-35 .elementor-element.elementor-element-6c18aec1 {
+  border: 3px double #ccc !important;
+  padding: 10px !important;
+  text-align: center !important;
+}
+
+.elementor-35 .elementor-element.elementor-element-6096423d .elementor-heading-title,
+.elementor-35 .elementor-element.elementor-element-51acb422 .elementor-heading-title,
+.elementor-35 .elementor-element.elementor-element-c94634 .elementor-heading-title {
+  font-weight: 600 !important;
+  line-height: 1.4 !important;
+}
+
+/* Sticky bottom bar */
+.elementor-element-78e9ef61 {
+  position: fixed !important;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  width: 100%;
+}
+
+.elementor-element-78e9ef61.elementor-sticky {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
+
+.elementor-element-f726f8 .elementor-button {
+  background-color: #188236 !important;
+  color: #fff !important;
+  border-radius: 50px;
+  padding: 12px 24px;
+  font-weight: 600;
+  border: 1px solid #fff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.elementor-35 .elementor-element.elementor-element-3d5f5379 .elementor-countdown-wrapper {
+  max-width: 100% !important;
+  justify-content: center;
+}
+
+/* Hide order form if any remnant */
+.elementor-element-40966475,
+.elementor-element-45a5eeaa,
+.elementor-widget-form {
+  display: none !important;
+}

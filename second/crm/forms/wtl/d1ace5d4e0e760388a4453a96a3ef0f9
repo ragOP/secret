@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+  <title>ADS</title>
+  <link rel="stylesheet" type="text/css" id="reset-css" href="https://indianhealth.store/crm/assets/css/reset.min.css?v=2.5.1">
+<link rel="stylesheet" type="text/css" id="roboto-css" href="https://indianhealth.store/crm/assets/plugins/roboto/roboto.css?v=2.5.1">
+<link rel="stylesheet" type="text/css" id="bootstrap-css" href="https://indianhealth.store/crm/assets/plugins/bootstrap/css/bootstrap.min.css?v=2.5.1">
+<link rel="stylesheet" type="text/css" id="datetimepicker-css" href="https://indianhealth.store/crm/assets/plugins/datetimepicker/jquery.datetimepicker.min.css?v=2.5.1">
+<link rel="stylesheet" type="text/css" id="colorpicker-css" href="https://indianhealth.store/crm/assets/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css?v=2.5.1">
+<link rel="stylesheet" type="text/css" id="fontawesome-css" href="https://indianhealth.store/crm/assets/plugins/font-awesome/css/font-awesome.min.css?v=2.5.1">
+<link rel="stylesheet" type="text/css" id="bootstrap-select-css" href="https://indianhealth.store/crm/assets/plugins/bootstrap-select/css/bootstrap-select.min.css?v=2.5.1">
+<link rel="stylesheet" type="text/css" id="forms-css" href="https://indianhealth.store/crm/assets/css/forms.min.css?v=2.5.1">
+    <script>
+        var cfh_popover_templates = {};
+        window.addEventListener('load',function(){
+            custom_fields_hyperlink();
+        });
+    </script>
+        <script>
+        function custom_fields_hyperlink(){
+         var cf_hyperlink = $('body').find('.cf-hyperlink');
+         if(cf_hyperlink.length){
+             $.each(cf_hyperlink,function(){
+                var cfh_wrapper = $(this);
+                var cfh_field_to = cfh_wrapper.attr('data-fieldto');
+                var cfh_field_id = cfh_wrapper.attr('data-field-id');
+                var textEl = $('body').find('#custom_fields_'+cfh_field_to+'_'+cfh_field_id+'_popover');
+                var hiddenField = $("#custom_fields\\\["+cfh_field_to+"\\\]\\\["+cfh_field_id+"\\\]");
+                var cfh_value = cfh_wrapper.attr('data-value');
+                hiddenField.val(cfh_value);
+
+                if($(hiddenField.val()).html() != ''){
+                    textEl.html($(hiddenField.val()).html());
+                }
+                var cfh_field_name = cfh_wrapper.attr('data-field-name');
+                textEl.popover({
+                    html: true,
+                    trigger: "manual",
+                    placement: "top",
+                    title:cfh_field_name,
+                    content:function(){
+                        return $(cfh_popover_templates[cfh_field_id]).html();
+                    }
+                }).on("click", function(e){
+                    var $popup = $(this);
+                    $popup.popover("toggle");
+                    var titleField = $("#custom_fields_"+cfh_field_to+"_"+cfh_field_id+"_title");
+                    var urlField = $("#custom_fields_"+cfh_field_to+"_"+cfh_field_id+"_link");
+                    var ttl = $(hiddenField.val()).html();
+                    var cfUrl = $(hiddenField.val()).attr("href");
+                    if(cfUrl){
+                        $('#cf_hyperlink_open_'+cfh_field_id).attr('href',(cfUrl.indexOf('://') === -1 ? 'http://' + cfUrl : cfUrl));
+                    }
+                    titleField.val(ttl);
+                    urlField.val(cfUrl);
+                    $("#custom_fields_"+cfh_field_to+"_"+cfh_field_id+"_btn-save").click(function(){
+                        hiddenField.val((urlField.val() != '' ? '<a href="'+urlField.val()+'" target="_blank">' + titleField.val() + '</a>' : ''));
+                        textEl.html(titleField.val() == "" ? "Click here to add link" : titleField.val());
+                        $popup.popover("toggle");
+                    });
+                    $("#custom_fields_"+cfh_field_to+"_"+cfh_field_id+"_btn-cancel").click(function(){
+                        if(urlField.val() == ''){
+                            hiddenField.val('');
+                        }
+                        $popup.popover("toggle");
+                    });
+                });
+            });
+         }
+     }
+ </script>
+     <script>
+        if (typeof (jQuery) === 'undefined' && !window.deferAfterjQueryLoaded) {
+            window.deferAfterjQueryLoaded = [];
+            Object.defineProperty(window, "$", {
+                set: function (value) {
+                    window.setTimeout(function () {
+                        $.each(window.deferAfterjQueryLoaded, function (index, fn) {
+                            fn();
+                        });
+                    }, 0);
+                    Object.defineProperty(window, "$", {
+                        value: value
+                    });
+                },
+                configurable: true
+            });
+        }
+
+        var csrfData = {"formatted":{"csrf_token_name":"41ff091394c41d35f23ed9e424f74f4d"},"token_name":"csrf_token_name","hash":"41ff091394c41d35f23ed9e424f74f4d"};
+
+        if (typeof(jQuery) == 'undefined') {
+            window.deferAfterjQueryLoaded.push(function () {
+                csrf_jquery_ajax_setup();
+            });
+            window.addEventListener('load',function(){
+                csrf_jquery_ajax_setup();
+            }, true);
+        } else {
+            csrf_jquery_ajax_setup();
+        }
+
+        function csrf_jquery_ajax_setup() {
+            $.ajaxSetup({
+                data: csrfData.formatted
+            });
+
+            $(document).ajaxError(function( event, request, settings ) {
+                if(request.status === 419) {
+                    alert_float('warning', 'Page expired, refresh the page make an action.')
+                }
+            });
+        }
+ </script>
+   </head>
+<body class="web-to-lead d1ace5d4e0e760388a4453a96a3ef0f9">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div id="response"></div>
+        <form action="https://indianhealth.store/crm/forms/wtl/d1ace5d4e0e760388a4453a96a3ef0f9" id="d1ace5d4e0e760388a4453a96a3ef0f9" class="disable-on-submit" enctype="multipart/form-data" method="post" accept-charset="utf-8">
+<input type="hidden" name="csrf_token_name" value="41ff091394c41d35f23ed9e424f74f4d" />                                                                                                                       
+                
+<input type="hidden" name="key" value="d1ace5d4e0e760388a4453a96a3ef0f9" />
+        <div class="row">
+          <div class="col-md-12"><div class="form-group" data-type="text" data-name="name" data-required="1"><label class="control-label" for="name"> <span class="text-danger">* </span> Name</label><input required="true" type="text" name="name" id="name" class="form-control" value=""></div></div><div class="col-md-12"><div class="form-group" data-type="text" data-name="phonenumber" data-required="false"><label class="control-label" for="phonenumber">Phone</label><input type="text" name="phonenumber" id="phonenumber" class="form-control" value=""></div></div><div class="col-md-12"><div class="form-group" data-type="textarea" data-name="address" data-required="false"><label class="control-label" for="address">Address</label><textarea id="address" name="address" rows="4" class="form-control" placeholder=""></textarea></div></div><div class="col-md-12"><div class="form-group" data-type="text" data-name="zip" data-required="false"><label class="control-label" for="zip">Zip Code</label><input type="text" name="zip" id="zip" class="form-control" value=""></div></div><div class="col-md-12"><div class="form-group" data-type="number" data-name="lead_value" data-required="false"><label class="control-label" for="lead_value">Lead Value</label><input type="number" name="lead_value" id="lead_value" class="form-control" value=""></div></div>                           <div class="clearfix"></div>
+         <div class="text-left col-md-12 submit-btn-wrapper">
+          <button class="btn btn-success" id="form_submit" type="submit">Submit</button>
+        </div>
+      </div>
+
+            </form>    </div>
+  </div>
+</div>
+
+    <script>
+       var app = {};
+       app.options = {};
+       app.lang = {};
+       app.options.date_format = 'Y-m-d';
+       app.options.time_format = '24';
+       app.options.calendar_first_day = '0';
+       app.lang.file_exceeds_max_filesize = "File size must be less than 256 MB";
+       app.lang.validation_extension_not_allowed = "File extension not allowed";
+   </script>
+
+   <script type="text/javascript" id="jquery-js" src="https://indianhealth.store/crm/assets/plugins/jquery/jquery.min.js?v=2.5.1"></script>
+<script type="text/javascript" id="bootstrap-js" src="https://indianhealth.store/crm/assets/plugins/bootstrap/js/bootstrap.min.js?v=2.5.1"></script>
+<script type="text/javascript" id="jquery-validation-js" src="https://indianhealth.store/crm/assets/plugins/jquery-validation/jquery.validate.min.js?v=2.5.1"></script>
+<script type="text/javascript" id="moment-js" src="https://indianhealth.store/crm/assets/builds/moment.min.js?v=2.5.1"></script>
+<script type="text/javascript" id="bootstrap-select-js" src="https://indianhealth.store/crm/assets/builds/bootstrap-select.min.js?v=2.5.1"></script>
+<script type="text/javascript" id="datetimepicker-js" src="https://indianhealth.store/crm/assets/plugins/datetimepicker/jquery.datetimepicker.full.min.js?v=2.5.1"></script>
+<script type="text/javascript" id="colorpicker-js" src="https://indianhealth.store/crm/assets/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js?v=2.5.1"></script>
+<script type="text/javascript" id="common-js" src="https://indianhealth.store/crm/assets/builds/common.js?v=2.5.1"></script>
+
+   <script>
+    $(function(){
+
+        $('body').tooltip({
+             selector: '[data-toggle="tooltip"]'
+        });
+
+        appColorPicker();
+        appDatepicker();
+        appSelectPicker($('select'));
+    });
+</script>
+<script>
+ var form_id = '#d1ace5d4e0e760388a4453a96a3ef0f9';
+ $(function() {
+   $(form_id).appFormValidator({
+
+    onSubmit: function(form) {
+
+     $("input[type=file]").each(function() {
+          if($(this).val() === "") {
+              $(this).prop('disabled', true);
+          }
+      });
+
+     var formURL = $(form).attr("action");
+     var formData = new FormData($(form)[0]);
+
+     $.ajax({
+       type: $(form).attr('method'),
+       data: formData,
+       mimeType: $(form).attr('enctype'),
+       contentType: false,
+       cache: false,
+       processData: false,
+       url: formURL
+     }).always(function(){
+      $('#form_submit').prop('disabled', false);
+     }).done(function(response){
+      response = JSON.parse(response);
+                 // In case action hook is used to redirect
+                 if (response.redirect_url) {
+                     window.top.location.href = response.redirect_url;
+                     return;
+                 }
+                 if (response.success == false) {
+                     $('#recaptcha_response_field').html(response.message); // error message
+                   } else if (response.success == true) {
+                     $(form_id).remove();
+                     $('#response').html('<div class="alert alert-success">'+response.message+'</div>');
+                     $('html,body').animate({
+                       scrollTop: $("#online_payment_form").offset().top
+                     },'slow');
+                   } else {
+                     $('#response').html('Something went wrong...');
+                   }
+                   if (typeof(grecaptcha) != 'undefined') {
+                     grecaptcha.reset();
+                   }
+                 }).fail(function(data){
+                 if (typeof(grecaptcha) != 'undefined') {
+                   grecaptcha.reset();
+                 }
+                 if(data.status == 422) {
+                    $('#response').html('<div class="alert alert-danger">Some fields that are required are not filled properly.</div>');
+                 } else {
+                    $('#response').html(data.responseText);
+                 }
+               });
+                 return false;
+               }
+             });
+ });
+</script>
+</body>
+</html>
