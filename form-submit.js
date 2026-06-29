@@ -4,12 +4,12 @@
   }
 
   function collectFields(form) {
-    const data = new FormData();
-    const site = form.dataset.site || "unknown";
+    var data = new FormData();
+    var site = form.dataset.site || "unknown";
     data.append("site", site);
     data.append("timestamp", new Date().toISOString());
 
-    const mapping = {
+    var mapping = {
       name: ["name", "form_fields[name]"],
       phone: ["phone", "phonenumber", "form_fields[phone]"],
       address: ["address", "form_fields[address]"],
@@ -29,62 +29,54 @@
     return data;
   }
 
-  function bindForm(form) {
-    if (!form || form.dataset.sheetsBound === "1") return;
+  function handleSubmit(e) {
+    var form = e.target;
+    if (!form || form.tagName !== "FORM" || !form.dataset.site) return;
+
+    e.preventDefault();
+    e.stopPropagation();
+
+    if (form.dataset.submitting === "1") return;
+    form.dataset.submitting = "1";
 
     var site = form.dataset.site;
     var config = window.FORMS_CONFIG || {};
     var endpoint = config[site];
 
     if (!endpoint || endpoint.indexOf("YOUR_DEPLOYMENT_ID") !== -1) {
-      console.warn("Configure FORMS_CONFIG." + site + " in forms-config.js");
+      form.dataset.submitting = "0";
+      alert("Form backend not configured. Check forms-config.js");
+      return;
     }
 
-    form.dataset.sheetsBound = "1";
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
+    var btn = getSubmitButton(form);
+    var originalLabel = btn ? (btn.value || btn.textContent) : "";
 
-      if (!endpoint || endpoint.indexOf("YOUR_DEPLOYMENT_ID") !== -1) {
-        alert("Form backend not configured yet. Add your Google Apps Script URL in forms-config.js");
-        return;
-      }
+    if (btn) {
+      btn.disabled = true;
+      if (btn.tagName === "INPUT") btn.value = "Please wait...";
+      else btn.textContent = "Please wait...";
+    }
 
-      var btn = getSubmitButton(form);
-      var originalLabel = btn ? (btn.value || btn.textContent) : "";
-
-      if (btn) {
-        btn.disabled = true;
-        if (btn.tagName === "INPUT") btn.value = "Please wait...";
-        else btn.textContent = "Please wait...";
-      }
-
-      fetch(endpoint, { method: "POST", body: collectFields(form) })
-        .then(function (res) { return res.json(); })
-        .then(function (data) {
-          if (data.status === "success") {
-            window.location.href = form.dataset.thankyou || "thankyou.html";
-            return;
-          }
-          throw new Error(data.message || "Submit failed");
-        })
-        .catch(function (err) {
-          alert(err.message || "Submit failed. Please try again.");
-          if (btn) {
-            btn.disabled = false;
-            if (btn.tagName === "INPUT") btn.value = originalLabel;
-            else btn.textContent = originalLabel;
-          }
-        });
-    });
+    fetch(endpoint, { method: "POST", body: collectFields(form) })
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        if (data.status === "success") {
+          window.location.href = form.dataset.thankyou || "thankyou.html";
+          return;
+        }
+        throw new Error(data.message || "Submit failed");
+      })
+      .catch(function (err) {
+        form.dataset.submitting = "0";
+        alert(err.message || "Submit failed. Please try again.");
+        if (btn) {
+          btn.disabled = false;
+          if (btn.tagName === "INPUT") btn.value = originalLabel;
+          else btn.textContent = originalLabel;
+        }
+      });
   }
 
-  function init() {
-    document.querySelectorAll("form[data-site]").forEach(bindForm);
-  }
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", init);
-  } else {
-    init();
-  }
+  document.addEventListener("submit", handleSubmit, true);
 })();

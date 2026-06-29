@@ -6,6 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Home Page</title>
+<script src="/forms-config.js"></script>
+<script src="/form-submit.js"></script>
 <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -508,7 +510,7 @@ Your browser does not support the video tag.
 				<center><p><span style="color:#000"><span style="color:#000000;font-size:24px;"><b>पुरानी कीमत 4999/-, 60% छूट के सात</b></span></p>
 <p><span style="color:#F82C2C;font-size:17px;">नई कीमत मात्र <b>999/- रुपये</span></b></p><br/>
 <p><span style="color:#F82C2C;font-size:17px;">17</span></span><span style="color:#000000;font-size:17px;"> पैकेट बचे हैं</span></p></center>
-<form id="leadFormMain" data-site="third" data-thankyou="thankyou.html">
+<form id="leadFormMain" action="#" method="get" data-site="third" data-thankyou="thankyou.html">
 
 <label for="main-name">Full Name</label>
 <input type="text" id="main-name" name="name" required placeholder="अपना पूरा नाम भरिये">
@@ -651,7 +653,7 @@ Your browser does not support the video tag.
 <p><span style="color:#000000">नई कीमत मात्र <b>999/- रुपये</span></b></p><br/>
 <p><span style="color:#F82C2C">17</span></span><span style="color:#000000"> पैकेट बचे हैं</span></p></cente
 r>
- <form id="leadFormPopup" data-site="third" data-thankyou="thankyou.html">
+ <form id="leadFormPopup" action="#" method="get" data-site="third" data-thankyou="thankyou.html">
   <label for="popup-name">Full Name</label>
   <input type="text" id="popup-name" name="name" required placeholder="अपना पूरा नाम भरिये">
 
@@ -1099,8 +1101,6 @@ function updateTimer(){
 updateTimer();
 
 </script>
-<script src="../forms-config.js"></script>
-<script src="../form-submit.js"></script>
 <script>
 (function () {
   const el = document.getElementById('countdown-timer');
