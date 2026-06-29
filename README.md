@@ -8,7 +8,7 @@ Offline mirrors of three landing pages.
 | `second/` | indianhealth.store/x1 | `index.html` |
 | `third/` | ayurmorewell.online | `index.html` |
 
-## Run locally
+## Run locallys
 
 ```bash
 # Site 1
