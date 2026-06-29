@@ -174,9 +174,29 @@ body.elementor-page-35 {
   justify-content: center;
 }
 
-/* Hide order form if any remnant */
-.elementor-element-40966475,
-.elementor-element-45a5eeaa,
-.elementor-widget-form {
-  display: none !important;
+/* Show order form */
+.elementor-element-40966475 {
+  display: block !important;
+  max-width: 480px;
+  margin: 0 auto 24px;
+  padding: 0 10px;
+}
+
+.elementor-element-40966475 .elementor-form-fields-wrapper {
+  text-align: left;
+}
+
+.elementor-element-40966475 .elementor-field-label {
+  color: #000 !important;
+}
+
+.elementor-element-40966475 .elementor-button[type="submit"] {
+  width: 100%;
+  background-color: #188236 !important;
+  color: #fff !important;
+  border-radius: 50px;
+  border: none;
+  padding: 12px 24px;
+  font-weight: 600;
+  cursor: pointer;
 }

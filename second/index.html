@@ -424,21 +424,11 @@
                                 </style>
                                 </p><div style="" id="orderFormBorder">
 
-                                    <!-- hidden iframe સાથે submitted વેરીએબલ નો સપોર્ટ -->
-<script type="text/javascript">var submitted=false;</script>
-<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {window.location='https://indianhealth.store/x1/thanks.html';}"></iframe>
-
-<!-- Form ટેગમાં target="hidden_iframe" અને onsubmit="submitted=true;" ઉમેર્યું છે -->
-<form action="crm/forms/wtl/d1ace5d4e0e760388a4453a96a3ef0f9" id="d1ace5d4e0e760388a4453a96a3ef0f9" class="disable-on-submit" enctype="multipart/form-data" method="post" accept-charset="utf-8" target="hidden_iframe" onsubmit="submitted=true;">
-    
-    <input type="hidden" name="csrf_token_name" value="21d66494d6b79640ec75c5ca12ea9861">
-    <input type="hidden" name="key" value="d1ace5d4e0e760388a4453a96a3ef0f9">
-
-    <div hidden="" class="col-md-12 db1">
-        <select hidden="" name="lead_value" data-label="label:Packages" class="form-control" required="">
-            <option hidden="1450" value="1299">Beginner's Pack (₹1450/-)</option>
+                                    <!-- Google Sheets order form -->
+<form id="second-order-form" data-site="second" data-thankyou="thankyou.html" class="disable-on-submit">
+        <select hidden="" name="lead_value" class="form-control">
+            <option value="1299">Beginner's Pack (₹1450/-)</option>
         </select>
-    </div>
 
     <div class="form-group">
         <label for="name">તમારું પૂરું નામ:</label>
@@ -1078,4 +1068,6 @@
 
 
 
+<script src="../forms-config.js"></script>
+<script src="../form-submit.js"></script>
 </body><!-- Mirrored from maxxjosh.shop/product.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 18 Jul 2024 15:59:51 GMT --></html>

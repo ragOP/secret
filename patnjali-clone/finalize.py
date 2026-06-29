@@ -62,14 +62,11 @@ def ensure_stylesheets(html, page_dir):
 
 
 def remove_form(html: str) -> str:
-    html = re.sub(
-        r'<div class="elementor-element elementor-element-45a5eeaa[^>]*>.*?</div>\s*'
-        r'<div class="elementor-element elementor-element-40966475[^>]*>.*?</div>\s*',
-        "",
-        html,
-        flags=re.S,
-    )
-    html = html.replace('href="#contact"', 'href="#"')
+    return html
+
+
+def restore_contact_links(html: str) -> str:
+    html = html.replace('href="#"', 'href="#contact"')
     return html
 
 

@@ -21,6 +21,20 @@ cd second && python3 -m http.server 8081
 cd third && python3 -m http.server 8082
 ```
 
+## Order forms → Google Sheets
+
+Each site has an order form. Submissions go to **separate tabs** in one Google Sheet.
+
+1. Follow `google-apps-script/README.md` to deploy the script
+2. Paste the `/exec` URL into `forms-config.js` (same URL for all three keys)
+3. Redeploy on Vercel
+
+| Site | Form fields |
+|------|-------------|
+| Patnjali | Name, Phone, Address, ZIP |
+| Indian Health | Name, Phone, Address |
+| Ayur More Well | Name, Phone, Address |
+
 ## Re-mirror a static site
 
 ```bash

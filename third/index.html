@@ -508,18 +508,18 @@ Your browser does not support the video tag.
 				<center><p><span style="color:#000"><span style="color:#000000;font-size:24px;"><b>पुरानी कीमत 4999/-, 60% छूट के सात</b></span></p>
 <p><span style="color:#F82C2C;font-size:17px;">नई कीमत मात्र <b>999/- रुपये</span></b></p><br/>
 <p><span style="color:#F82C2C;font-size:17px;">17</span></span><span style="color:#000000;font-size:17px;"> पैकेट बचे हैं</span></p></center>
-<form id="leadForm">
+<form id="leadFormMain" data-site="third" data-thankyou="thankyou.html">
 
-<label for="name">Full Name</label>
-<input type="text" id="name" name="name" required placeholder="अपना पूरा नाम भरिये">
+<label for="main-name">Full Name</label>
+<input type="text" id="main-name" name="name" required placeholder="अपना पूरा नाम भरिये">
 
-<label for="phone">Active Phone Number</label>
-<input type="text" id="phone" name="phone" pattern="[0-9]{10}" maxlength="10" required placeholder="अपना 10 अंकों का सही मोबाईल नंबर डाले">
+<label for="main-phone">Active Phone Number</label>
+<input type="text" id="main-phone" name="phone" pattern="[0-9]{10}" maxlength="10" required placeholder="अपना 10 अंकों का सही मोबाईल नंबर डाले">
 
-<label for="address">Address</label>
-<textarea rows="4" cols="150" id="address" name="address" required placeholder="कृपया अपना पूरा पता पिनकोड के साथ दर्ज करें अन्यथा आपका ऑर्डर डिलीवर नहीं किया जाएगा!"></textarea>
+<label for="main-address">Address</label>
+<textarea rows="4" cols="150" id="main-address" name="address" required placeholder="कृपया अपना पूरा पता पिनकोड के साथ दर्ज करें अन्यथा आपका ऑर्डर डिलीवर नहीं किया जाएगा!"></textarea>
 
-<input type="submit" value="अभी ऑर्डर करें" id="submit-btn">
+<input type="submit" value="अभी ऑर्डर करें" class="submit-btn">
 
 </form>
                 </div>
@@ -651,17 +651,17 @@ Your browser does not support the video tag.
 <p><span style="color:#000000">नई कीमत मात्र <b>999/- रुपये</span></b></p><br/>
 <p><span style="color:#F82C2C">17</span></span><span style="color:#000000"> पैकेट बचे हैं</span></p></cente
 r>
- <form id="leadForm">
-  <label for="name">Full Name</label>
-  <input type="text" id="name" name="name" required placeholder="अपना पूरा नाम भरिये">
+ <form id="leadFormPopup" data-site="third" data-thankyou="thankyou.html">
+  <label for="popup-name">Full Name</label>
+  <input type="text" id="popup-name" name="name" required placeholder="अपना पूरा नाम भरिये">
 
-  <label for="phone">Active Phone Number</label>
-  <input type="text" id="phone" name="phone" required placeholder="अपना 10 अंकों का सही मोबाइल नंबर डालें">
+  <label for="popup-phone">Active Phone Number</label>
+  <input type="text" id="popup-phone" name="phone" pattern="[0-9]{10}" maxlength="10" required placeholder="अपना 10 अंकों का सही मोबाइल नंबर डालें">
 
-  <label for="address">Address</label>
-  <textarea id="address" name="address" rows="4" cols="100" required placeholder="कृपया अपना पूरा पता पिनकोड के साथ दर्ज करें अन्यथा आपका ऑर्डर डिलिवर नहीं किया जाएगा!"></textarea>
+  <label for="popup-address">Address</label>
+  <textarea id="popup-address" name="address" rows="4" cols="100" required placeholder="कृपया अपना पूरा पता पिनकोड के साथ दर्ज करें अन्यथा आपका ऑर्डर डिलिवर नहीं किया जाएगा!"></textarea>
 
-  <input type="submit" value="अभी ऑर्डर करें" id="submit-btn">
+  <input type="submit" value="अभी ऑर्डर करें" class="submit-btn">
 </form>
     <button class="close-btn" onclick="closePopup()">Close</button>
   </div>
@@ -1099,40 +1099,8 @@ function updateTimer(){
 updateTimer();
 
 </script>
-<script>
-document.getElementById("leadForm").addEventListener("submit", async function(e) {
-  e.preventDefault();
-
-  const form = this;
-  const formData = new FormData(form);
-  const submitBtn = document.getElementById("submit-btn");
-
-  submitBtn.disabled = true;
-  submitBtn.value = "Please wait...";
-
-  try {
-    const response = await fetch("https://script.google.com/macros/s/AKfycbwaS6p-49K5yOHThtLb4j-L4bVvMsUwPMZVJjqK6YuUwAKZYIZsIh1ohptOT3TpxZuT/exec", {
-      method: "POST",
-      body: formData
-    });
-
-    const data = await response.json();
-
-    if (data.status === "success") {
-      window.location.href = "thankyou.html";
-    } else {
-      alert("Error: " + data.message);
-      submitBtn.disabled = false;
-      submitBtn.value = "अभी ऑर्डर करें";
-    }
-  } catch (error) {
-    console.error(error);
-    alert("Submit failed ❌");
-    submitBtn.disabled = false;
-    submitBtn.value = "अभी ऑर्डर करें";
-  }
-});
-</script>
+<script src="../forms-config.js"></script>
+<script src="../form-submit.js"></script>
 <script>
 (function () {
   const el = document.getElementById('countdown-timer');
