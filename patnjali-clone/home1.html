@@ -417,6 +417,34 @@ class="post-35 page type-page status-publish ast-article-single" id="post-35" it
 				<div class="elementor-element elementor-element-2748e60e elementor-widget__width-initial elementor-widget elementor-widget-heading" data-id="2748e60e" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
 					<h2 class="elementor-heading-title elementor-size-default"><a href="#contact">Buy Now ₹999/-
 </a></h2>				</div>
+				<div class="elementor-element elementor-element-40966475 elementor-button-align-stretch elementor-widget elementor-widget-form patnjali-order-form" data-id="40966475-top" data-element_type="widget" data-e-type="widget" data-widget_type="form.default">
+							<form class="elementor-form" method="post" name="Leads Form Top" aria-label="Leads Form Top" data-site="patnjali" data-thankyou="thankyou.html">
+			<div class="elementor-form-fields-wrapper elementor-labels-above">
+								<div class="elementor-field-type-text elementor-field-group elementor-column elementor-col-100 elementor-field-required">
+												<label for="form-field-name-top" class="elementor-field-label">Name</label>
+														<input size="1" type="text" name="form_fields[name]" id="form-field-name-top" class="elementor-field elementor-size-sm elementor-field-textual" placeholder="अपना पूरा नाम लिखे" required="required">
+											</div>
+								<div class="elementor-field-type-tel elementor-field-group elementor-column elementor-col-100 elementor-field-required">
+												<label for="form-field-phone-top" class="elementor-field-label">Phone No.</label>
+								<input size="1" type="tel" name="form_fields[phone]" id="form-field-phone-top" class="elementor-field elementor-size-sm elementor-field-textual" placeholder="अपना 10 अंको का फ़ोन नंबर दर्ज करे" required="required" pattern="[0-9]{10}" maxlength="10">
+						</div>
+								<div class="elementor-field-type-textarea elementor-field-group elementor-column elementor-col-100 elementor-field-required">
+												<label for="form-field-address-top" class="elementor-field-label">Street Address</label>
+						<textarea class="elementor-field-textual elementor-field elementor-size-sm" name="form_fields[address]" id="form-field-address-top" rows="2" placeholder="अपना पूरा पता भरिये" required="required"></textarea>				</div>
+								<div class="elementor-field-type-number elementor-field-group elementor-column elementor-col-100 elementor-field-required">
+												<label for="form-field-zip-top" class="elementor-field-label">ZIP / Postal Code</label>
+									<input type="number" name="form_fields[zip]" id="form-field-zip-top" class="elementor-field elementor-size-sm elementor-field-textual" placeholder="पिन कोड लिखिए" required="required">
+						</div>
+								<div class="elementor-field-group elementor-column elementor-field-type-submit elementor-col-100 e-form__buttons">
+					<button class="elementor-button elementor-size-sm" type="submit">
+						<span class="elementor-button-content-wrapper">
+							<span class="elementor-button-text">Order Now</span>
+						</span>
+					</button>
+				</div>
+			</div>
+		</form>
+						</div>
 				<div class="elementor-element elementor-element-5fdfff4e elementor-widget elementor-widget-image" data-id="5fdfff4e" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
 															<img bv-data-src="wp-content/uploads/al_opt_content/IMAGE/patnjali.online/wp-content/uploads/2026/06/Screenshot-2025-04-22-101929.webp"  loading="lazy" decoding="async" width="684" height="413" src="wp-content/uploads/al_opt_content/IMAGE/patnjali.online/wp-content/uploads/2026/06/Screenshot-2025-04-22-101929.webp" class="attachment-large size-large wp-image-41 bv-tag-attr-replace bv-lazyload-tag-img"   alt="" bv-data-srcset="wp-content/uploads/al_opt_content/IMAGE/patnjali.online/wp-content/uploads/2026/06/Screenshot-2025-04-22-101929.webp 684w, wp-content/uploads/2026/06/Screenshot-2025-04-22-101929-300x181.webp 300w"  sizes="(max-width: 684px) 100vw, 684px" />															</div>
 				<div class="elementor-element elementor-element-75184ee4 elementor-widget elementor-widget-heading" data-id="75184ee4" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
@@ -697,7 +725,7 @@ Clinically proven: 341% penis enlargement in 3 weeks of taking   <strong data-st
 				<div class="elementor-element elementor-element-45a5eeaa elementor-widget elementor-widget-menu-anchor" data-id="45a5eeaa" data-element_type="widget" data-e-type="widget" data-widget_type="menu-anchor.default">
 							<div class="elementor-menu-anchor" id="contact"></div>
 						</div>
-				<div class="elementor-element elementor-element-40966475 elementor-button-align-stretch elementor-widget elementor-widget-form" data-id="40966475" data-element_type="widget" data-e-type="widget" data-widget_type="form.default">
+				<div class="elementor-element elementor-element-40966475 elementor-button-align-stretch elementor-widget elementor-widget-form patnjali-order-form" id="contact-form" data-id="40966475" data-element_type="widget" data-e-type="widget" data-widget_type="form.default">
 							<form class="elementor-form" method="post" name="Leads Form" aria-label="Leads Form" data-site="patnjali" data-thankyou="thankyou.html">
 			<div class="elementor-form-fields-wrapper elementor-labels-above">
 								<div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-name elementor-col-100 elementor-field-required elementor-mark-required">
@@ -914,6 +942,30 @@ const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(
 
 <script src="../forms-config.js"></script>
 <script src="../form-submit.js"></script>
+<script>
+(function () {
+  function scrollToContact() {
+    var topForm = document.querySelector(".patnjali-order-form");
+    var anchor = document.getElementById("contact-form") || document.getElementById("contact") || topForm;
+    if (anchor) {
+      anchor.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
+
+  document.querySelectorAll('a[href="#contact"]').forEach(function (link) {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+      scrollToContact();
+    });
+  });
+
+  if (window.location.hash === "#contact") {
+    window.addEventListener("load", function () {
+      setTimeout(scrollToContact, 200);
+    });
+  }
+})();
+</script>
 </body>
 </html>
 <!-- This website is optimized by Airlift. Learn more: https://airlift.net. Template:. Learn more: https://airlift.net. Template: 6a3261ac46fa5c8f0c4748dd. Config Timestamp: 2026-06-17 08:58:19 UTC, Cached Timestamp: 2026-06-28 16:10:38 UTC, Optimization Time: 63.56ms -->

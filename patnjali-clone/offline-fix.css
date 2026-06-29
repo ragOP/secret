@@ -175,22 +175,50 @@ body.elementor-page-35 {
 }
 
 /* Show order form */
-.elementor-element-40966475 {
+.elementor-element-40966475,
+.patnjali-order-form {
   display: block !important;
   max-width: 480px;
   margin: 0 auto 24px;
   padding: 0 10px;
 }
 
-.elementor-element-40966475 .elementor-form-fields-wrapper {
+#contact,
+#contact-form {
+  scroll-margin-top: 16px;
+  scroll-margin-bottom: 110px;
+}
+
+.elementor-menu-anchor#contact {
+  display: block;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.elementor-element-40966475 .elementor-form-fields-wrapper,
+.patnjali-order-form .elementor-form-fields-wrapper {
   text-align: left;
 }
 
-.elementor-element-40966475 .elementor-field-label {
+.elementor-element-40966475 .elementor-field-label,
+.patnjali-order-form .elementor-field-label {
   color: #000 !important;
 }
 
-.elementor-element-40966475 .elementor-button[type="submit"] {
+.elementor-element-40966475 .elementor-field,
+.patnjali-order-form .elementor-field {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+.elementor-element-40966475 .elementor-button[type="submit"],
+.patnjali-order-form .elementor-button[type="submit"] {
   width: 100%;
   background-color: #188236 !important;
   color: #fff !important;
