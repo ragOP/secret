@@ -57,6 +57,8 @@ def local_for(base_url, root, url):
     rel = urllib.parse.urljoin(base_dir, parsed.path)
     if rel.startswith(base_dir):
         rel = rel[len(base_dir) :]
+    if not rel:
+        rel = "index.html"
     if rel.endswith("/"):
         rel += "index.html"
     return root / rel.lstrip("/")
