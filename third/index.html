@@ -79,8 +79,11 @@ src="https://www.facebook.com/tr?id=1659831821983545&ev=PageView&noscript=1"
 
 /* Open button */
 .open-btn {
+  display: inline-block;
   padding: 10px 20px;
   cursor: pointer;
+  text-decoration: none;
+  color: inherit;
 }
 
 .age-gate-overlay {
@@ -288,7 +291,7 @@ src="https://www.facebook.com/tr?id=1659831821983545&ev=PageView&noscript=1"
                   </a>
 
                   <!-- Cart Icon with Badge -->
-                  <a href="#" class="action-btn position-relative" aria-label="Cart">
+                  <a href="#contact" class="action-btn position-relative" aria-label="Cart">
                     <i class="fa-solid fa-cart-shopping"></i>
                     <span
                       class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger border border-light"
@@ -367,7 +370,7 @@ Your browser does not support the video tag.
                     </p>
 					 <!--<center><a href="#contact"> Order Now- Cash on Delivery</button></a></center>-->
 					 
-					 <center><button class="open-btn"><i class="fa fa-shopping-cart" aria-hidden="true"></i> <a href="#contact">अभी ऑर्डर करे</a></button></center>
+					 <center><a class="open-btn" href="#contact"><i class="fa fa-shopping-cart" aria-hidden="true"></i> अभी ऑर्डर करे</a></center>
 					<div class="offer-box">
 
 <h2>Offer Ends in</h2>
@@ -405,7 +408,7 @@ Your browser does not support the video tag.
                       <div id="thumb-one" class="tab-pane fade show active" role="tabpanel">
                         <div class="product-details-thumb">
                           <div class="thumb">
-						  <center><button class="open-btn" ><i class="fa fa-shopping-cart" aria-hidden="true"></i> <a href="#contact">अभी ऑर्डर करे</a></button>
+						  <center><a class="open-btn" href="#contact"><i class="fa fa-shopping-cart" aria-hidden="true"></i> अभी ऑर्डर करे</a></center>
                             <img src="assets/8888.jpg">
 						</div>
                         </div>
@@ -1219,6 +1222,28 @@ updateTimer();
 
   // start countdown
   const timer = setInterval(tick, 1000);
+})();
+</script>
+<script>
+(function () {
+  function scrollToForm() {
+    var target = document.getElementById("contact") || document.getElementById("leadFormMain");
+    if (!target) return;
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  document.addEventListener("click", function (e) {
+    var link = e.target.closest('a[href="#contact"], .open-btn');
+    if (!link) return;
+    e.preventDefault();
+    scrollToForm();
+  });
+
+  if (window.location.hash === "#contact") {
+    window.addEventListener("load", function () {
+      setTimeout(scrollToForm, 200);
+    });
+  }
 })();
 </script>
 </body>
