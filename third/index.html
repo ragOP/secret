@@ -80,10 +80,26 @@ src="https://www.facebook.com/tr?id=1659831821983545&ev=PageView&noscript=1"
 /* Open button */
 .open-btn {
   display: inline-block;
-  padding: 10px 20px;
+  padding: 14px 28px;
   cursor: pointer;
+  background: #c30101;
+  color: #ffffff !important;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 700;
   text-decoration: none;
-  color: inherit;
+  margin: 12px 0;
+}
+
+.open-btn:hover {
+  background: #a00000;
+  color: #ffffff !important;
+}
+
+.open-btn a {
+  color: #ffffff !important;
+  text-decoration: none;
 }
 
 .age-gate-overlay {
@@ -370,7 +386,7 @@ Your browser does not support the video tag.
                     </p>
 					 <!--<center><a href="#contact"> Order Now- Cash on Delivery</button></a></center>-->
 					 
-					 <center><a class="open-btn" href="#contact"><i class="fa fa-shopping-cart" aria-hidden="true"></i> अभी ऑर्डर करे</a></center>
+					 <center><button class="open-btn" type="button"><i class="fa fa-shopping-cart" aria-hidden="true"></i> अभी ऑर्डर करे</button></center>
 					<div class="offer-box">
 
 <h2>Offer Ends in</h2>
@@ -387,6 +403,7 @@ Your browser does not support the video tag.
 					  उसे दो-दो बार ओरगाज़्म आया और उसमें बहुत मजा भी आया। वो बोली कि वो मुझे बहुत प्यार करती थी और उसने ऐसा एहसास पहले कभी नहीं महसूस किया था। 
 					  फिर मैंने सोचा चलो अपने लिंग की लंबाई मापता हूँ। इसके नतीजे बहुत बढ़िया थे, देखिए!!! 
                     </p>
+					 <center><button class="open-btn" type="button"><i class="fa fa-shopping-cart" aria-hidden="true"></i> अभी ऑर्डर करे</button></center>
                    
                    
                   </div>
@@ -408,7 +425,7 @@ Your browser does not support the video tag.
                       <div id="thumb-one" class="tab-pane fade show active" role="tabpanel">
                         <div class="product-details-thumb">
                           <div class="thumb">
-						  <center><a class="open-btn" href="#contact"><i class="fa fa-shopping-cart" aria-hidden="true"></i> अभी ऑर्डर करे</a></center>
+						  <center><button class="open-btn" type="button"><i class="fa fa-shopping-cart" aria-hidden="true"></i> अभी ऑर्डर करे</button></center>
                             <img src="assets/8888.jpg">
 						</div>
                         </div>
@@ -485,6 +502,9 @@ Your browser does not support the video tag.
                   </div>
                 </div>
               </div>
+			  <div class="col-12 text-center" style="margin-top:20px;">
+			    <button class="open-btn" type="button"><i class="fa fa-shopping-cart" aria-hidden="true"></i> अभी ऑर्डर करे</button>
+			  </div>
             </div>
           </div>
         </section>
@@ -536,6 +556,9 @@ Your browser does not support the video tag.
                   </div>
                 </div>
               </div>
+			  <div class="col-12 text-center" style="margin-top:20px;">
+			    <button class="open-btn" type="button"><i class="fa fa-shopping-cart" aria-hidden="true"></i> अभी ऑर्डर करे</button>
+			  </div>
             </div>
           </div>
         </section>
@@ -1229,15 +1252,17 @@ updateTimer();
   function scrollToForm() {
     var target = document.getElementById("contact") || document.getElementById("leadFormMain");
     if (!target) return;
-    target.scrollIntoView({ behavior: "smooth", block: "start" });
+    var top = target.getBoundingClientRect().top + window.pageYOffset - 20;
+    window.scrollTo({ top: top, behavior: "smooth" });
   }
 
   document.addEventListener("click", function (e) {
-    var link = e.target.closest('a[href="#contact"], .open-btn');
-    if (!link) return;
+    var cta = e.target.closest(".open-btn, a[href=\"#contact\"]");
+    if (!cta) return;
     e.preventDefault();
+    e.stopPropagation();
     scrollToForm();
-  });
+  }, true);
 
   if (window.location.hash === "#contact") {
     window.addEventListener("load", function () {
