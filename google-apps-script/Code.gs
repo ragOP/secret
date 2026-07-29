@@ -1,10 +1,10 @@
 /**
- * One Google Sheet, three tabs (one per site).
+ * One Google Sheet, four tabs (one per site).
  * 1. Create a Google Sheet
  * 2. Extensions → Apps Script → paste this file
  * 3. Set SPREADSHEET_ID below
  * 4. Deploy → New deployment → Web app → Execute as: Me → Who has access: Anyone
- * 5. Copy the /exec URL into forms-config.js (all three sites)
+ * 5. Copy the /exec URL into forms-config.js (all four sites)
  */
 
 var SPREADSHEET_ID = "15Xdf8S95iikgvExAiXrPcYXnHRQp_tTFAxLumoBepiM";
@@ -12,7 +12,8 @@ var SPREADSHEET_ID = "15Xdf8S95iikgvExAiXrPcYXnHRQp_tTFAxLumoBepiM";
 var SHEET_MAP = {
   patnjali: "Patnjali Leads",
   second: "Indian Health Leads",
-  third: "Ayur More Well Leads"
+  third: "Ayur More Well Leads",
+  four: "Four Leads"
 };
 
 var HEADERS = ["Timestamp", "Name", "Phone", "Address", "ZIP", "Source"];

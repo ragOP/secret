@@ -1,4 +1,4 @@
-# Google Sheets setup (one spreadsheet, three tabs)
+# Google Sheets setup (one spreadsheet, four tabs)
 
 Each site writes to its own sheet tab:
 
@@ -7,6 +7,7 @@ Each site writes to its own sheet tab:
 | `patnjali-clone/` | Patnjali Leads |
 | `second/` | Indian Health Leads |
 | `third/` | Ayur More Well Leads |
+| `four/` | Four Leads |
 
 ## Steps
 
@@ -20,7 +21,7 @@ Each site writes to its own sheet tab:
    - Execute as: **Me**
    - Who has access: **Anyone**
 7. Copy the **Web app URL** (ends with `/exec`)
-8. Paste it into `/forms-config.js` for all three keys (`patnjali`, `second`, `third`)
+8. Paste it into `/forms-config.js` for all four keys (`patnjali`, `second`, `third`, `four`)
 9. Commit and redeploy on Vercel
 
 ## Test
