@@ -7,7 +7,7 @@ Offline mirrors of four landing pages.
 | `patnjali-clone/` | patnjali.online | `index.html` → age gate, then `home1.html` |
 | `second/` | indianhealth.store/x1 | `index.html` |
 | `third/` | ayurmorewell.online | `index.html` |
-| `four/` | ayurmorewell.online (clone) | `index.html` |
+| `four/` | ayurmorewell.online (clone) | `index.html` — **own Google Spreadsheet** |
 
 ## Run locallys
 
@@ -27,18 +27,19 @@ cd four && python3 -m http.server 8083
 
 ## Order forms → Google Sheets
 
-Each site has an order form. Submissions go to **separate tabs** in one Google Sheet.
+Each site has an order form. Sites 1–3 share one spreadsheet (separate tabs). **Four uses its own Google Spreadsheet.**
 
 1. Follow `google-apps-script/README.md` to deploy the script
-2. Paste the `/exec` URL into `forms-config.js` (same URL for all four keys)
-3. Redeploy on Vercel
+2. Create a blank sheet for four and paste its ID into `FOUR_SPREADSHEET_ID` in `Code.gs`
+3. Paste the `/exec` URL into `forms-config.js` (same URL for all four keys)
+4. Redeploy on Vercel
 
-| Site | Form fields |
-|------|-------------|
-| Patnjali | Name, Phone, Address, ZIP |
-| Indian Health | Name, Phone, Address |
-| Ayur More Well | Name, Phone, Address |
-| Four | Name, Phone, Address |
+| Site | Form fields | Sheet |
+|------|-------------|-------|
+| Patnjali | Name, Phone, Address, ZIP | Shared tab |
+| Indian Health | Name, Phone, Address | Shared tab |
+| Ayur More Well | Name, Phone, Address | Shared tab |
+| Four | Name, Phone, Address | **New spreadsheet** |
 
 ## Re-mirror a static site
 
